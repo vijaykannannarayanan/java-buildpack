@@ -55,13 +55,6 @@ module JavaBuildpack
       def release
         @droplet.java_opts
           .add_system_property('java.io.tmpdir', '$TMPDIR')
-          .add_option('-XX:OnOutOfMemoryError', killjava)
-      end
-
-      private
-
-      def killjava
-        @droplet.sandbox + 'bin/killjava.sh'
       end
 
     end
